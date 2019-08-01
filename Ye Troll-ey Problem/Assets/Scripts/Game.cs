@@ -6,8 +6,12 @@ public class Game : MonoBehaviour
 {
     public static Game s_instance;
 
+    public UnityEngine.UI.Text m_timeText;
+
+
     public enum GAMESTATE
     {
+        INIT,
         FRONTEND,
         GAMEINTRO,
         PLAYING,
@@ -15,16 +19,66 @@ public class Game : MonoBehaviour
     }
 
     public GAMESTATE m_gameState = GAMESTATE.FRONTEND;
-    public float m_timer;
+    public float m_timer = 0;
+    public float m_gameTime = 60.0f;
     public GameObject m_frontEnd;
+    public GameObject m_hud;
     public float m_spawnVictimTimer;
     public GameObject m_victimPrefab;
+    public int m_maxVictims = 100;
+
+    float m_gameIntroTimer;
+    float m_gameEndTimer;
 
     // Start is called before the first frame update
     void Start()
     {
         s_instance = this;
-        m_timer = 60.0f;
+        m_timer = m_gameTime;
+
+        SetState(GAMESTATE.INIT);
+    }
+
+    void SetState(GAMESTATE gameState)
+    {
+        // ====================================
+        // State initialisation
+        // ====================================
+
+        switch (gameState)
+        {
+            case GAMESTATE.FRONTEND:
+                break;
+
+            case GAMESTATE.GAMEINTRO:
+                m_gameIntroTimer = 1.5f;
+                break;
+
+            case GAMESTATE.PLAYING:
+                m_timer = m_gameTime;
+                break;
+
+            case GAMESTATE.GAMEEND:
+                m_gameEndTimer = 5.0f;
+                break;
+        }
+
+        // ====================================
+        // Activate objects for specific states
+        // ====================================
+
+        m_frontEnd.SetActive(gameState == GAMESTATE.FRONTEND);
+        m_hud.SetActive(gameState != GAMESTATE.FRONTEND);
+
+        if (PlayerCursor.s_players != null)
+        {
+            for (int i = 0; i < PlayerCursor.s_players.Count; ++i)
+                PlayerCursor.s_players[i].gameObject.SetActive(gameState == GAMESTATE.PLAYING);
+        }
+
+        // ====================================
+
+        m_gameState = gameState;
     }
 
     // Update is called once per frame
@@ -32,10 +86,23 @@ public class Game : MonoBehaviour
     {
         switch (m_gameState)
         {
+            case Game.GAMESTATE.INIT:
+                {
+                    SetState(GAMESTATE.FRONTEND);
+                }
+                break;
             case GAMESTATE.FRONTEND:
                 {
                     if (!m_frontEnd.activeInHierarchy)
                         PlayClicked();
+                }
+                break;
+
+            case GAMESTATE.GAMEINTRO:
+                {
+                    m_gameIntroTimer -= Time.deltaTime;
+                    if (m_gameIntroTimer <= 0)
+                        SetState(GAMESTATE.PLAYING);
                 }
                 break;
 
@@ -44,24 +111,44 @@ public class Game : MonoBehaviour
                     m_spawnVictimTimer -= Time.deltaTime;
                     if(m_spawnVictimTimer <= 0 )
                     {
-                        Instantiate(m_victimPrefab, Vector3.zero, Quaternion.identity, this.transform);
+                        if(Victim.s_victims == null || Victim.s_victims.Count < m_maxVictims)
+                            Instantiate(m_victimPrefab, Vector3.zero, Quaternion.identity, this.transform);
                         m_spawnVictimTimer = 0.5f;
                     }
 
                     m_timer -= Time.deltaTime;
                     if (m_timer <= 0)
+                        SetState(GAMESTATE.GAMEEND);
+                }
+                break;
+
+            case GAMESTATE.GAMEEND:
+                {
+                    m_gameEndTimer -= Time.deltaTime;
+                    if (m_gameEndTimer <= 0)
                     {
-                        m_gameState = GAMESTATE.GAMEEND;
-                        // Show game end
+                        if (Victim.s_victims != null)
+                        {
+                            for (int i = 0; i < Victim.s_victims.Count; ++i)
+                            {
+                                GameObject.Destroy(Victim.s_victims[i].gameObject);
+                            }
+                        }
+                        SetState(GAMESTATE.FRONTEND);
                     }
                 }
                 break;
         }
+
+        int seconds = (int)m_timer;
+        int miliseconds = (int)((m_timer - seconds) * 100.0f);
+        m_timeText.text = seconds.ToString();
+        m_timeText.text += ":";
+        m_timeText.text += miliseconds.ToString();
     }
 
     public void PlayClicked()
     {
-        m_frontEnd.SetActive(false);
-        m_gameState = GAMESTATE.PLAYING;
+        SetState(GAMESTATE.GAMEINTRO);
     }
 }

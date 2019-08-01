@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Victim : MonoBehaviour
 {
-   
+    public static List<Victim> s_victims;
+
     public float m_speed = 1.0f;
     public float m_minTimeBetweenDirectionChange = 0.5f;
     public float m_maxTimeBetweenDirectionChange = 1.5f;
@@ -21,6 +22,11 @@ public class Victim : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (s_victims == null)
+            s_victims = new List<Victim>();
+
+        s_victims.Add(this);
+
         m_directionComponent = gameObject.GetComponent<Direction>();
         RandomiseDirection();
         m_playerID = Random.Range((int)1, (int)4);
@@ -28,6 +34,11 @@ public class Victim : MonoBehaviour
         gameObject.transform.position = m_targetSpawnPos;
         gameObject.transform.position += Vector3.up * m_fallHeight;
         m_blobShadow.transform.position = m_targetSpawnPos;
+    }
+
+    private void OnDestroy()
+    {
+        s_victims.Remove(this);
     }
 
     // Update is called once per frame

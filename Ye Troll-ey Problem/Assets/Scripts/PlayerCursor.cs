@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerCursor : MonoBehaviour
 {
-    static List<PlayerCursor> s_players;
+    public static List<PlayerCursor> s_players;
 
     public static float s_speed = 30.0f;
     public int m_playerID = 0;
@@ -20,6 +20,11 @@ public class PlayerCursor : MonoBehaviour
             s_players = new List<PlayerCursor>();
 
         s_players.Add(this);
+    }
+
+    private void OnDestroy()
+    {
+        s_players.Remove(this);
     }
 
     public static PlayerCursor GetPlayer(int playerId)
