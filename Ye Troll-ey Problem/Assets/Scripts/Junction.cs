@@ -27,4 +27,14 @@ public class Junction : MonoBehaviour
 
         return m_outputDirections[m_currentIndex];
     }
+
+    public void Switch()
+    {
+        if (++m_currentIndex >= m_outputDirections.Count)
+        {
+            m_currentIndex = 0;
+
+            // TODO: UPDATE SPRITE
+        }
+    }
 }
