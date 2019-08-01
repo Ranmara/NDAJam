@@ -6,6 +6,7 @@ public class Junction : MonoBehaviour
 {
     public List<Direction.DIRECTION_ENUM> m_outputDirections;
     public List<Sprite> m_sprites;
+    public SoundVariation m_SFX_switch;
 
     int m_currentIndex = 0;
 
@@ -31,6 +32,12 @@ public class Junction : MonoBehaviour
 
     public void Switch()
     {
+        if (m_outputDirections.Count < 1)
+            return;
+
+        if(m_SFX_switch)
+            m_SFX_switch.PlayRandom();
+
         if (++m_currentIndex >= m_outputDirections.Count)
             m_currentIndex = 0;
         UpdateSprite();
