@@ -9,6 +9,7 @@ public class PlayerCursor : MonoBehaviour
     public static float s_speed = 30.0f;
     public int m_playerID = 0;
     public int m_score = 0;
+    public UnityEngine.UI.Text m_scoreText;
 
     Junction m_overJunction = null;
 
@@ -59,6 +60,9 @@ public class PlayerCursor : MonoBehaviour
                     Switch();
                 break;
         }
+
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -2.0f);
+        m_scoreText.text = m_score.ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
