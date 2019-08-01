@@ -10,7 +10,23 @@ PrefabInstance:
     - target: {fileID: 5015087278579260571, guid: 3af1539932bfe0f43846ada86bb2ad3c,
         type: 3}
       propertyPath: m_Name
-      value: Junction_East_West
+      value: Junc_S_to_EW
+      objectReference: {fileID: 0}
+    - target: {fileID: 4214351960175116998, guid: 3af1539932bfe0f43846ada86bb2ad3c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3470795507788121348, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d,
+        type: 3}
+    - target: {fileID: 1799780547424931560, guid: 3af1539932bfe0f43846ada86bb2ad3c,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799780547424931560, guid: 3af1539932bfe0f43846ada86bb2ad3c,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2128790335712295970, guid: 3af1539932bfe0f43846ada86bb2ad3c,
         type: 3}
@@ -74,13 +90,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2136375365514330616, guid: 3af1539932bfe0f43846ada86bb2ad3c,
         type: 3}
+      propertyPath: m_sprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136375365514330616, guid: 3af1539932bfe0f43846ada86bb2ad3c,
+        type: 3}
       propertyPath: m_outputDirections.Array.data[0]
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2136375365514330616, guid: 3af1539932bfe0f43846ada86bb2ad3c,
         type: 3}
       propertyPath: m_outputDirections.Array.data[1]
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2136375365514330616, guid: 3af1539932bfe0f43846ada86bb2ad3c,
+        type: 3}
+      propertyPath: m_sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 3470795507788121348, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d,
+        type: 3}
+    - target: {fileID: 2136375365514330616, guid: 3af1539932bfe0f43846ada86bb2ad3c,
+        type: 3}
+      propertyPath: m_sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -7955399967691644082, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3af1539932bfe0f43846ada86bb2ad3c, type: 3}
