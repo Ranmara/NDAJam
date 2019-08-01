@@ -33,7 +33,7 @@ public class Cart : MonoBehaviour
                 break;
         }
 
-        gameObject.transform.position = gameObject.transform.position + directionVector * Time.deltaTime * m_speed;
+        gameObject.transform.position += directionVector * Time.deltaTime * m_speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
