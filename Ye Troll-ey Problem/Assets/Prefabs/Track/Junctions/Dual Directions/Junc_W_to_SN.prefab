@@ -16,7 +16,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 7701313686522669797, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d,
+      objectReference: {fileID: 4134005643775122923, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d,
         type: 3}
     - target: {fileID: 1799780547424931560, guid: 3af1539932bfe0f43846ada86bb2ad3c,
         type: 3}
@@ -107,13 +107,13 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sprites.Array.data[0]
       value: 
-      objectReference: {fileID: 7701313686522669797, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d,
+      objectReference: {fileID: 4134005643775122923, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d,
         type: 3}
     - target: {fileID: 2136375365514330616, guid: 3af1539932bfe0f43846ada86bb2ad3c,
         type: 3}
       propertyPath: m_sprites.Array.data[1]
       value: 
-      objectReference: {fileID: 3470795507788121348, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d,
+      objectReference: {fileID: 6491288193118755374, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3af1539932bfe0f43846ada86bb2ad3c, type: 3}
