@@ -37,7 +37,6 @@ public class Cart : MonoBehaviour
         }
 
         gameObject.transform.position += directionVector * Time.deltaTime * m_speed;
-        gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -1.0f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
