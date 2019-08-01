@@ -365,6 +365,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1019187678
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1019187679}
+  m_Layer: 0
+  m_Name: BloodSplash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1019187679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019187678}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 505.30762, y: 262.556, z: -902.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5562430398282393365}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1033502264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -481,6 +512,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586575950209687004, guid: 365d235aa41a18142bb249fa510c4dcf,
+        type: 3}
+      propertyPath: m_Name
+      value: Play_Button_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586575950426365400, guid: 365d235aa41a18142bb249fa510c4dcf,
+        type: 3}
+      propertyPath: m_Name
+      value: Title_Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586575951009421106, guid: 365d235aa41a18142bb249fa510c4dcf,
+        type: 3}
+      propertyPath: m_Name
+      value: Quit_button
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586575951412373486, guid: 365d235aa41a18142bb249fa510c4dcf,
+        type: 3}
+      propertyPath: m_Name
+      value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586575952250448173, guid: 365d235aa41a18142bb249fa510c4dcf,
+        type: 3}
+      propertyPath: m_Name
+      value: Play_Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586575952340717701, guid: 365d235aa41a18142bb249fa510c4dcf,
+        type: 3}
+      propertyPath: m_Name
+      value: Quit_button_Text
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 365d235aa41a18142bb249fa510c4dcf, type: 3}
@@ -2485,6 +2546,86 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7652975127936909796, guid: 3add0e1572c1bfb4290fef369ed46105,
     type: 3}
   m_PrefabInstance: {fileID: 5203334335567057222}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5562430398282393364
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1019187679}
+    m_Modifications:
+    - target: {fileID: 3718868599485168075, guid: c579e9150a69e1f48a090f42510ca101,
+        type: 3}
+      propertyPath: m_Name
+      value: BloodSplash
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459100100648844676, guid: c579e9150a69e1f48a090f42510ca101,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459100100648844676, guid: c579e9150a69e1f48a090f42510ca101,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459100100648844676, guid: c579e9150a69e1f48a090f42510ca101,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459100100648844676, guid: c579e9150a69e1f48a090f42510ca101,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.8433915
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459100100648844676, guid: c579e9150a69e1f48a090f42510ca101,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459100100648844676, guid: c579e9150a69e1f48a090f42510ca101,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459100100648844676, guid: c579e9150a69e1f48a090f42510ca101,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.53729963
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459100100648844676, guid: c579e9150a69e1f48a090f42510ca101,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459100100648844676, guid: c579e9150a69e1f48a090f42510ca101,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -115
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459100100648844676, guid: c579e9150a69e1f48a090f42510ca101,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459100100648844676, guid: c579e9150a69e1f48a090f42510ca101,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5459100100648844676, guid: c579e9150a69e1f48a090f42510ca101,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c579e9150a69e1f48a090f42510ca101, type: 3}
+--- !u!4 &5562430398282393365 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5459100100648844676, guid: c579e9150a69e1f48a090f42510ca101,
+    type: 3}
+  m_PrefabInstance: {fileID: 5562430398282393364}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6627690249824042912
 PrefabInstance:
