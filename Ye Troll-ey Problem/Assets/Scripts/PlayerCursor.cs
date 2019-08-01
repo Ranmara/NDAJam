@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class PlayerCursor : MonoBehaviour
 {
+    static List<PlayerCursor> s_players;
+
     public static float s_speed = 30.0f;
     public int m_playerID = 0;
+    public int m_score = 0;
 
     Junction m_overJunction = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        s_players.Add(this);
+    }
+
+    public static PlayerCursor GetPlayer(int playerId)
+    {
+        for(int i = 0; i < s_players.Count; ++i)
+        {
+            if (s_players[i].m_playerID == playerId)
+                return s_players[i];
+        }
+
+        return null;
     }
 
     // Update is called once per frame
