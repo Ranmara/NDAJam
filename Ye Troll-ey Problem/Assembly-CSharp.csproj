@@ -56,7 +56,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Cart.cs" />
-     <Compile Include="Assets\Scripts\Directions.cs" />
+     <Compile Include="Assets\Scripts\Direction.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>C:/Users/gamejam/Desktop/NDA Jam/NDAJam/Ye Troll-ey Problem/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
