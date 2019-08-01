@@ -5,13 +5,14 @@ using UnityEngine;
 public class Junction : MonoBehaviour
 {
     public List<Direction.DIRECTION_ENUM> m_outputDirections;
+    public List<Sprite> m_sprites;
 
     int m_currentIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        UpdateSprite();
     }
 
     // Update is called once per frame
@@ -31,10 +32,19 @@ public class Junction : MonoBehaviour
     public void Switch()
     {
         if (++m_currentIndex >= m_outputDirections.Count)
-        {
             m_currentIndex = 0;
+        UpdateSprite();
+    }
 
-            // TODO: UPDATE SPRITE
+    void UpdateSprite()
+    {
+        if (m_currentIndex < m_sprites.Count)
+        {
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+            if (spriteRenderer)
+            {
+                spriteRenderer.sprite = m_sprites[m_currentIndex];
+            }
         }
     }
 }
