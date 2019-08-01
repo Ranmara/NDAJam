@@ -46,6 +46,12 @@ public class Cart : MonoBehaviour
                 gameObject.transform.position = collision.gameObject.transform.position;
                 m_directionComponent.m_direction = junction.GetCurrentOutputDirection();
             }
+
+            Victim victim = collision.gameObject.GetComponent<Victim>();
+            if (victim)
+            {
+                victim.Hit();
+            }
         }
     }
 

@@ -14,6 +14,7 @@ public class Victim : MonoBehaviour
     {
         m_directionComponent = gameObject.GetComponent<Direction>();
         RandomiseDirection();
+        m_playerID = Random.Range((int)1, (int)4);
     }
 
     // Update is called once per frame
@@ -47,5 +48,17 @@ public class Victim : MonoBehaviour
     {
         m_changeDirectionTimer = 1.0f + Random.Range(0.0f, 2.0f);
         m_directionComponent.m_direction = (Direction.DIRECTION_ENUM)Random.Range((int)0, (int)4);
+    }
+
+    public void Hit()
+    {
+        GameObject.Destroy(gameObject);
+
+        // TODO: VFX
+        PlayerCursor player = PlayerCursor.GetPlayer(m_playerID);
+        if(player)
+        {
+            ++player.m_score;
+        }
     }
 }
