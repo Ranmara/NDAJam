@@ -16,6 +16,9 @@ public class PlayerCursor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (s_players == null)
+            s_players = new List<PlayerCursor>();
+
         s_players.Add(this);
     }
 
@@ -33,7 +36,10 @@ public class PlayerCursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(m_playerID)
+        if (Game.s_instance.m_gameState != Game.GAMESTATE.PLAYING)
+            return;
+
+        switch (m_playerID)
         {
             case 0:
                 gameObject.transform.position += Vector3.right * Time.deltaTime * Input.GetAxis("P1_Horizontal") * s_speed;

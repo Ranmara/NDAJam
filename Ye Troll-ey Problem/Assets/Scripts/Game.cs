@@ -23,6 +23,7 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        s_instance = this;
         m_timer = 60.0f;
     }
 
