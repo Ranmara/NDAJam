@@ -63,9 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Cart.cs" />
+    <Compile Include="Assets\Scripts\CartAnim.cs" />
     <Compile Include="Assets\Scripts\Direction.cs" />
     <Compile Include="Assets\Scripts\Junction.cs" />
     <Compile Include="Assets\Scripts\PlayerCursor.cs" />
+    <Compile Include="Assets\Scripts\Victim.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/gamejam/Desktop/NDA Jam/NDAJam/Ye Troll-ey Problem/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

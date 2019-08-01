@@ -2,22 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cart : MonoBehaviour
+public class Victim : MonoBehaviour
 {
+    int m_playerID;
     Direction m_directionComponent;
-    public float m_speed = 2.0f;
+    public float m_speed = 1.0f;
+    float m_changeDirectionTimer = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         m_directionComponent = gameObject.GetComponent<Direction>();
+        RandomiseDirection();
     }
 
     // Update is called once per frame
     void Update()
     {
+        m_changeDirectionTimer -= Time.deltaTime;
+        if(m_changeDirectionTimer <= 0)
+            RandomiseDirection();
+
         Vector3 directionVector = Vector3.zero;
-        switch(m_directionComponent.m_direction)
+        switch (m_directionComponent.m_direction)
         {
             case Direction.DIRECTION_ENUM.NORTH:
                 directionVector = Vector3.up;
@@ -36,17 +43,9 @@ public class Cart : MonoBehaviour
         gameObject.transform.position += directionVector * Time.deltaTime * m_speed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    void RandomiseDirection()
     {
-        if (collision.gameObject)
-        {
-            Junction junction = collision.gameObject.GetComponent<Junction>();
-            if (junction)
-            {
-                gameObject.transform.position = collision.gameObject.transform.position;
-                m_directionComponent.m_direction = junction.GetCurrentOutputDirection();
-            }
-        }
+        m_changeDirectionTimer = 1.0f + Random.Range(0.0f, 2.0f);
+        m_directionComponent.m_direction = (Direction.DIRECTION_ENUM)Random.Range((int)0, (int)4);
     }
-
 }
