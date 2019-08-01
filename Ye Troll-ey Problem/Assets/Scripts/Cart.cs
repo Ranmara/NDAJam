@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cart : MonoBehaviour
 {
     Direction m_directionComponent;
+    public float m_speed = 2.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,20 +19,33 @@ public class Cart : MonoBehaviour
         Vector3 directionVector = Vector3.zero;
         switch(m_directionComponent.m_direction)
         {
-            case Direction.NORTH:
+            case Direction.DIRECTION_ENUM.NORTH:
                 directionVector = Vector3.up;
                 break;
-            case Direction.EAST:
+            case Direction.DIRECTION_ENUM.EAST:
                 directionVector = Vector3.right;
                 break;
-            case Direction.SOUTH:
+            case Direction.DIRECTION_ENUM.SOUTH:
                 directionVector = Vector3.down;
                 break;
-            case Direction.WEST:
+            case Direction.DIRECTION_ENUM.WEST:
                 directionVector = Vector3.left;
                 break;
         }
 
-        gameObject.transform.position = gameObject.transform.position + directionVector * Time.deltaTime;
+        gameObject.transform.position = gameObject.transform.position + directionVector * Time.deltaTime * m_speed;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject)
+        {
+            Junction junction = collision.gameObject.GetComponent<Junction>();
+            if (junction)
+            {
+                m_directionComponent.m_direction = junction.GetCurrentOutputDirection();
+            }
+        }
+    }
+
 }
