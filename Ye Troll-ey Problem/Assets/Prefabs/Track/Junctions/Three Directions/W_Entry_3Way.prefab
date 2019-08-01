@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1799780547424931560}
   - component: {fileID: 9204682430703725848}
   m_Layer: 0
-  m_Name: Junction_South_East_West
+  m_Name: W_Entry_3Way
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e64ad844e4eeb14797445e37a74b186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_outputDirections: 020000000100000003000000
+  m_outputDirections: 020000000100000000000000
+  m_sprites:
+  - {fileID: 6553038121793887528, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d, type: 3}
+  - {fileID: -8151371007754649163, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d, type: 3}
+  - {fileID: -7955399967691644082, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d, type: 3}
 --- !u!212 &4214351960175116998
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -85,7 +89,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: defbcacae1dfc1a489bd886c5869b5ca, type: 3}
+  m_Sprite: {fileID: -7955399967691644082, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -113,7 +118,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

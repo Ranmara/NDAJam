@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3443113013953989490}
   - component: {fileID: 3443113013953989491}
   m_Layer: 0
-  m_Name: Cart
+  m_Name: Track_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: defbcacae1dfc1a489bd886c5869b5ca, type: 3}
+  m_Sprite: {fileID: 5254757267019922550, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
