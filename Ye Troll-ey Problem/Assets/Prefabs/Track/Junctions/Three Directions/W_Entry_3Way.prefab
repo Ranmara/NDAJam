@@ -50,7 +50,8 @@ MonoBehaviour:
   m_sprites:
   - {fileID: 6553038121793887528, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d, type: 3}
   - {fileID: -8151371007754649163, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d, type: 3}
-  - {fileID: -7955399967691644082, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d, type: 3}
+  - {fileID: -42874162738999017, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d, type: 3}
+  m_SFX_switch: {fileID: 0}
 --- !u!212 &4214351960175116998
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -89,8 +90,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7955399967691644082, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d,
-    type: 3}
+  m_Sprite: {fileID: -42874162738999017, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
