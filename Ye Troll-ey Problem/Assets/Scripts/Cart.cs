@@ -16,6 +16,9 @@ public class Cart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Game.s_instance.m_gameState != Game.GAMESTATE.PLAYING)
+            return;
+
         Vector3 directionVector = Vector3.zero;
         switch(m_directionComponent.m_direction)
         {
@@ -34,6 +37,7 @@ public class Cart : MonoBehaviour
         }
 
         gameObject.transform.position += directionVector * Time.deltaTime * m_speed;
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -1.0f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

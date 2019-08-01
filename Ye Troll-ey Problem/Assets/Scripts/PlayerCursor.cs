@@ -9,12 +9,16 @@ public class PlayerCursor : MonoBehaviour
     public static float s_speed = 30.0f;
     public int m_playerID = 0;
     public int m_score = 0;
+    public UnityEngine.UI.Text m_scoreText;
 
     Junction m_overJunction = null;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (s_players == null)
+            s_players = new List<PlayerCursor>();
+
         s_players.Add(this);
     }
 
@@ -32,7 +36,10 @@ public class PlayerCursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch(m_playerID)
+        if (Game.s_instance.m_gameState != Game.GAMESTATE.PLAYING)
+            return;
+
+        switch (m_playerID)
         {
             case 0:
                 gameObject.transform.position += Vector3.right * Time.deltaTime * Input.GetAxis("P1_Horizontal") * s_speed;
@@ -59,6 +66,9 @@ public class PlayerCursor : MonoBehaviour
                     Switch();
                 break;
         }
+
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -2.0f);
+        m_scoreText.text = m_score.ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
