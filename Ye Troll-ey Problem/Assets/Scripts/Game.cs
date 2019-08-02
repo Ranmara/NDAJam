@@ -60,6 +60,11 @@ public class Game : MonoBehaviour
         switch (gameState)
         {
             case GAMESTATE.FRONTEND:
+                for (int i = 0; i < PlayerCursor.s_players.Count; ++i)
+                {
+                    PlayerCursor.s_players[i].m_score = 0;
+                    m_scores[i] = 0;
+                }
                 break;
 
             case GAMESTATE.GAMEINTRO:
