@@ -22,6 +22,7 @@ public class Victim : MonoBehaviour
     public float m_fallHeight = 20.0f;
     public float m_roamDistance = 0.6f;
     public SoundVariation m_SFX_splat;
+    public SoundVariation m_SFX_scream;
 
     Direction m_directionComponent;
     int m_playerID;
@@ -159,6 +160,11 @@ public class Victim : MonoBehaviour
         // TODO: Splatter VFX, +1
         if (m_SFX_splat)
             m_SFX_splat.PlayRandom();
+        if(m_SFX_scream)
+        {
+            if(Random.Range((int)1, (int)5) == 1)
+                m_SFX_scream.PlayRandom();
+        }
         m_state = STATE.Dying;
         m_deathTimer = 1.0f;
 
