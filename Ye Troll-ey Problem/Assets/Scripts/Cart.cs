@@ -7,6 +7,7 @@ public class Cart : MonoBehaviour
     Direction m_directionComponent;
     public float m_speed = 2.0f;
     Vector3 m_originalPosition;
+    Direction.DIRECTION_ENUM m_originalDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -46,7 +47,10 @@ public class Cart : MonoBehaviour
             gameObject.transform.position.x > Game.s_instance.m_screenExtents.xMax ||
             gameObject.transform.position.y < Game.s_instance.m_screenExtents.yMin ||
             gameObject.transform.position.y > Game.s_instance.m_screenExtents.yMax)
+        {
             gameObject.transform.position = m_originalPosition;
+            m_directionComponent.m_direction = m_originalDirection;
+        }
 
         // Force Z depth
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -1.0f);

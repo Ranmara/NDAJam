@@ -34,6 +34,7 @@ public class Game : MonoBehaviour
     public GameObject m_victimPrefab;
     public int m_maxVictims = 100;
     public GameObject m_endScores;
+    public GameObject m_playerEndScores;
     public EndScores m_endScoresScript;
     public bool m_scoresDisplayed;
 
@@ -166,7 +167,11 @@ public class Game : MonoBehaviour
             case GAMESTATE.ENDSCORES:
                 if (m_scoresDisplayed == false)
                 {
+                    m_endScoresScript = m_playerEndScores.GetComponent<EndScores>();
+
                     m_endScoresScript.DisplayScores();
+
+                    m_scoresDisplayed = true;
                 }
 
                 if (!m_endScores.activeInHierarchy)
