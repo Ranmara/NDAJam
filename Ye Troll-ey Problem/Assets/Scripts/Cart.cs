@@ -14,6 +14,7 @@ public class Cart : MonoBehaviour
     {
         m_directionComponent = gameObject.GetComponent<Direction>();
         m_originalPosition = gameObject.transform.position;
+        m_originalDirection = m_directionComponent.m_direction;
     }
 
     // Update is called once per frame
