@@ -9,10 +9,10 @@ public class QuitGame : MonoBehaviour
     public void Quit ()
         {
         
-        Debug.Log("QUIT");
-        Application.Quit();
+        //Debug.Log("QUIT");
+        //Application.Quit();
 
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
 
 
     }
