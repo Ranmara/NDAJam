@@ -14,7 +14,7 @@ public class Game : MonoBehaviour
     public SoundVariation m_SFX_playClicked;
     public SoundVariation m_SFX_startGame;
     public SoundVariation m_SFX_endGame;
-
+    
     public enum GAMESTATE
     {
         INIT,
@@ -22,6 +22,7 @@ public class Game : MonoBehaviour
         GAMEINTRO,
         PLAYING,
         GAMEEND,
+        ENDSCORES,
     }
 
     public GAMESTATE m_gameState = GAMESTATE.FRONTEND;
@@ -32,6 +33,9 @@ public class Game : MonoBehaviour
     public float m_spawnVictimTimer;
     public GameObject m_victimPrefab;
     public int m_maxVictims = 100;
+    public GameObject m_endScores;
+    public EndScores m_endScoresScript;
+    public bool m_scoresDisplayed;
 
     float m_gameIntroTimer;
     float m_gameEndTimer;
@@ -74,6 +78,10 @@ public class Game : MonoBehaviour
                 if (m_SFX_endGame)
                     m_SFX_endGame.PlayRandom();
                 break;
+
+            case GAMESTATE.ENDSCORES:
+                m_scoresDisplayed = false;
+                break;
         }
 
         // ====================================
@@ -82,6 +90,7 @@ public class Game : MonoBehaviour
 
         m_frontEnd.SetActive(gameState == GAMESTATE.FRONTEND);
         m_hud.SetActive(gameState != GAMESTATE.FRONTEND);
+        m_endScores.SetActive(gameState == GAMESTATE.ENDSCORES);
 
         if (PlayerCursor.s_players != null)
         {
@@ -147,9 +156,21 @@ public class Game : MonoBehaviour
                                 GameObject.Destroy(Victim.s_victims[i].gameObject);
                             }
                         }
-                        SetState(GAMESTATE.FRONTEND);
+
+                        SetState(GAMESTATE.ENDSCORES);
                     }
+
                 }
+                break;
+
+            case GAMESTATE.ENDSCORES:
+                if (m_scoresDisplayed == false)
+                {
+                    m_endScoresScript.DisplayScores();
+                }
+
+                if (!m_endScores.activeInHierarchy)
+                    RestartClicked();
                 break;
         }
 
@@ -163,5 +184,10 @@ public class Game : MonoBehaviour
     public void PlayClicked()
     {
         SetState(GAMESTATE.GAMEINTRO);
+    }
+
+    public void RestartClicked()
+    {
+        SetState(GAMESTATE.FRONTEND);
     }
 }

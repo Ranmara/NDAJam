@@ -17,8 +17,7 @@ public class EndScores : MonoBehaviour
     public Text secondText;
     public Text thirdText;
     public Text fourthText;
-
-
+    
     public void DisplayScores()
     {
         // [x,0] - player Id, [x,1] - their score
@@ -40,7 +39,7 @@ public class EndScores : MonoBehaviour
     }
 
 
-    void ArrangeScores()
+    public void ArrangeScores()
     {
         int temp_var = 0;
 
@@ -66,7 +65,7 @@ public class EndScores : MonoBehaviour
     }
 
 
-    void ChangeText()
+    public void ChangeText()
     {
         firstText.text = "Player " + scoreArray[0, 0] + " : " + scoreArray[0, 1];
         secondText.text = "Player " + scoreArray[1, 0] + " : " + scoreArray[1, 1];
