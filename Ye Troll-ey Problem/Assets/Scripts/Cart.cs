@@ -8,6 +8,7 @@ public class Cart : MonoBehaviour
     public float m_speed = 2.0f;
     Vector3 m_originalPosition;
     Direction.DIRECTION_ENUM m_originalDirection;
+    Junction m_lastCollidedJunction = null;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,36 @@ public class Cart : MonoBehaviour
         // Move
         gameObject.transform.position += directionVector * Time.deltaTime * m_speed;
 
+        if(m_lastCollidedJunction)
+        {
+            bool turn = false;
+            switch (m_directionComponent.m_direction)
+            {
+                case Direction.DIRECTION_ENUM.NORTH:
+                    if (gameObject.transform.position.y >= m_lastCollidedJunction.gameObject.transform.position.y)
+                        turn = true;
+                    break;
+                case Direction.DIRECTION_ENUM.EAST:
+                    if (gameObject.transform.position.x >= m_lastCollidedJunction.gameObject.transform.position.x)
+                        turn = true;
+                    break;
+                case Direction.DIRECTION_ENUM.SOUTH:
+                    if (gameObject.transform.position.y <= m_lastCollidedJunction.gameObject.transform.position.y)
+                        turn = true;
+                    break;
+                case Direction.DIRECTION_ENUM.WEST:
+                    if (gameObject.transform.position.x <= m_lastCollidedJunction.gameObject.transform.position.y)
+                        turn = true;
+                    break;
+            }
+            if (turn)
+            {
+                gameObject.transform.position = m_lastCollidedJunction.gameObject.transform.position;
+                m_directionComponent.m_direction = m_lastCollidedJunction.GetCurrentOutputDirection();
+            }
+            m_lastCollidedJunction = null;
+        }
+
         // Clamp
         if (gameObject.transform.position.x < Game.s_instance.m_screenExtents.xMin ||
             gameObject.transform.position.x > Game.s_instance.m_screenExtents.xMax ||
@@ -63,10 +94,7 @@ public class Cart : MonoBehaviour
         {
             Junction junction = collision.gameObject.GetComponent<Junction>();
             if (junction)
-            {
-                gameObject.transform.position = collision.gameObject.transform.position;
-                m_directionComponent.m_direction = junction.GetCurrentOutputDirection();
-            }
+                m_lastCollidedJunction = junction;
 
             Victim victim = collision.gameObject.GetComponent<Victim>();
             if (victim)

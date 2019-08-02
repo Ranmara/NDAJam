@@ -34,6 +34,7 @@ public class Victim : MonoBehaviour
 
     public Animator animator;
     public Animator[] my_animators;
+    public SpriteRenderer spriter;
 
 
     // Start is called before the first frame update
@@ -142,9 +143,9 @@ public class Victim : MonoBehaviour
                     }
 
                     if (m_directionComponent.m_direction == Direction.DIRECTION_ENUM.EAST)
-                        animator.SetBool("FlipSprite", false);
+                        spriter.flipX = false;
                     if (m_directionComponent.m_direction == Direction.DIRECTION_ENUM.WEST)
-                        animator.SetBool("FlipSprite", true);
+                        spriter.flipX = true;
                     animator.SetInteger("TrollState", 1);
                 }
                 break;
