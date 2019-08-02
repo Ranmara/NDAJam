@@ -436,6 +436,7 @@ MonoBehaviour:
   m_roamDistance: 0.6
   m_SFX_splat: {fileID: 6837900411195757470}
   m_SFX_scream: {fileID: 5605882845215139851}
+  animator: {fileID: 3316666029008235498}
 --- !u!114 &2131620787119952363
 MonoBehaviour:
   m_ObjectHideFlags: 0

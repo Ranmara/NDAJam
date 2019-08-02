@@ -131,6 +131,10 @@ public class Victim : MonoBehaviour
                         RandomiseDirection();
                     }
 
+                    if (m_directionComponent.m_direction == Direction.DIRECTION_ENUM.EAST)
+                        animator.SetBool("FlipSprite", false);
+                    if (m_directionComponent.m_direction == Direction.DIRECTION_ENUM.WEST)
+                        animator.SetBool("FlipSprite", true);
                     animator.SetInteger("TrollState", 1);
                 }
                 break;

@@ -91,7 +91,7 @@ AnimatorStateMachine:
     m_Position: {x: 290, y: 160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1756327402787776293}
-    m_Position: {x: 320, y: -60, z: 0}
+    m_Position: {x: 340, y: -50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4881998583366725764}
     m_Position: {x: 160, y: -190, z: 0}
@@ -152,6 +152,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: FlipSprite
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -180,15 +186,15 @@ AnimatorState:
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
-  m_Mirror: 0
+  m_Mirror: 1
   m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
+  m_MirrorParameterActive: 1
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 3bb24926d9856084b93653b35e90adee, type: 2}
   m_Tag: 
   m_SpeedParameter: 
-  m_MirrorParameter: 
+  m_MirrorParameter: FlipSprite
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1101 &4559430801112024720
@@ -202,6 +208,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: TrollState
     m_EventTreshold: 1
+  - m_ConditionMode: 2
+    m_ConditionEvent: FlipSprite
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1756327402787776293}
   m_Solo: 0
