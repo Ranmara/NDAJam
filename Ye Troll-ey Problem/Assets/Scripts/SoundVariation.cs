@@ -26,6 +26,9 @@ public class SoundVariation : MonoBehaviour
 
     int RepeatCheck(int previousIndex, int range)
     {
+        if (clipArray.Length == 1)
+            return 0;
+
         int index = Random.Range(0, range);
 
         while (index == previousIndex)
