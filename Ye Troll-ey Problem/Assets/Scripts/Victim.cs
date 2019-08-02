@@ -5,6 +5,14 @@ using UnityEngine;
 public class Victim : MonoBehaviour
 {
     public static List<Victim> s_victims;
+    float m_deathTimer;
+
+    enum STATE
+    {
+        Spawning,
+        Walking,
+        Dying
+    }
 
     public float m_speed = 1.0f;
     public float m_minTimeBetweenDirectionChange = 0.5f;
@@ -12,11 +20,13 @@ public class Victim : MonoBehaviour
     public GameObject m_blobShadow;
     public float m_fallSpeed = 1.0f;
     public float m_fallHeight = 20.0f;
+    public float m_roamDistance = 0.7f;
+    public SoundVariation m_SFX_splat;
 
     Direction m_directionComponent;
     int m_playerID;
     float m_changeDirectionTimer = 0;
-    bool m_spawning = true;
+    STATE m_state = STATE.Spawning;
     Vector3 m_targetSpawnPos;
 
     // Start is called before the first frame update
@@ -30,7 +40,20 @@ public class Victim : MonoBehaviour
         m_directionComponent = gameObject.GetComponent<Direction>();
         RandomiseDirection();
         m_playerID = Random.Range((int)1, (int)4);
-        m_targetSpawnPos = new Vector3(Random.Range((float)-10.0f, (float)10.0f), Random.Range((float)-10.0f, (float)10.0f), -1.0f);
+
+        // Spawn at random junction
+        if (Junction.s_junctions != null && Junction.s_junctions.Count > 0)
+        {
+            int rand = Random.Range((int)0, (int)Junction.s_junctions.Count);
+            m_targetSpawnPos = Junction.s_junctions[rand].gameObject.transform.position;
+            m_targetSpawnPos.x -= m_roamDistance / 2;
+            m_targetSpawnPos.y -= m_roamDistance / 2;
+            m_targetSpawnPos.x += Random.Range(0, m_roamDistance);
+            m_targetSpawnPos.y += Random.Range(0, m_roamDistance);
+        }
+        else
+            m_targetSpawnPos = new Vector3(Random.Range((float)-10.0f, (float)10.0f), Random.Range((float)-10.0f, (float)10.0f), -1.0f);
+
         gameObject.transform.position = m_targetSpawnPos;
         gameObject.transform.position += Vector3.up * m_fallHeight;
         m_blobShadow.transform.position = m_targetSpawnPos;
@@ -44,51 +67,77 @@ public class Victim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_spawning)
-        {
-            gameObject.transform.position += Vector3.down * m_fallSpeed * Time.deltaTime;
-            if(gameObject.transform.position.y <= m_targetSpawnPos.y)
-            {
-                gameObject.transform.position = m_targetSpawnPos;
-                m_spawning = false;
-            }
-            m_blobShadow.transform.position = m_targetSpawnPos;
-        }
-        else
-        {
-            m_changeDirectionTimer -= Time.deltaTime;
-            if (m_changeDirectionTimer <= 0)
-                RandomiseDirection();
+        switch(m_state)
+        { 
+            case STATE.Spawning:
+                gameObject.transform.position += Vector3.down * m_fallSpeed * Time.deltaTime;
+                if (gameObject.transform.position.y <= m_targetSpawnPos.y)
+                {
+                    gameObject.transform.position = m_targetSpawnPos;
+                    m_state = STATE.Walking;
+                }
+                m_blobShadow.transform.position = m_targetSpawnPos;
+                break;
+            case STATE.Walking:
+                {
+                    m_changeDirectionTimer -= Time.deltaTime;
+                    if (m_changeDirectionTimer <= 0)
+                        RandomiseDirection();
 
-            Vector3 directionVector = Vector3.zero;
-            switch (m_directionComponent.m_direction)
-            {
-                case Direction.DIRECTION_ENUM.NORTH:
-                    directionVector = Vector3.up;
-                    break;
-                case Direction.DIRECTION_ENUM.EAST:
-                    directionVector = Vector3.right;
-                    break;
-                case Direction.DIRECTION_ENUM.SOUTH:
-                    directionVector = Vector3.down;
-                    break;
-                case Direction.DIRECTION_ENUM.WEST:
-                    directionVector = Vector3.left;
-                    break;
-            }
+                    Vector3 directionVector = Vector3.zero;
+                    switch (m_directionComponent.m_direction)
+                    {
+                        case Direction.DIRECTION_ENUM.NORTH:
+                            directionVector = Vector3.up;
+                            break;
+                        case Direction.DIRECTION_ENUM.EAST:
+                            directionVector = Vector3.right;
+                            break;
+                        case Direction.DIRECTION_ENUM.SOUTH:
+                            directionVector = Vector3.down;
+                            break;
+                        case Direction.DIRECTION_ENUM.WEST:
+                            directionVector = Vector3.left;
+                            break;
+                    }
 
-            // Move
-            gameObject.transform.position += directionVector * Time.deltaTime * m_speed;
+                    // Move
+                    gameObject.transform.position += directionVector * Time.deltaTime * m_speed;
 
-            // Clamp
-            if (gameObject.transform.position.x < Game.s_instance.m_screenExtents.xMin ||
-                gameObject.transform.position.x > Game.s_instance.m_screenExtents.xMax ||
-                gameObject.transform.position.y < Game.s_instance.m_screenExtents.yMin ||
-                gameObject.transform.position.y > Game.s_instance.m_screenExtents.yMax)
-            {
-                GameObject.Destroy(gameObject);
-                return;
-            }
+                    // Clamp
+                    if (gameObject.transform.position.x < m_targetSpawnPos.x - m_roamDistance)
+                    {
+                        gameObject.transform.position = new Vector3(m_targetSpawnPos.x - m_roamDistance, gameObject.transform.position.y, gameObject.transform.position.z);
+                        RandomiseDirection();
+                    }
+                    else if (gameObject.transform.position.x > m_targetSpawnPos.x + m_roamDistance)
+                    {
+                        gameObject.transform.position = new Vector3(m_targetSpawnPos.x + m_roamDistance, gameObject.transform.position.y, gameObject.transform.position.z);
+                        RandomiseDirection();
+                    }
+
+                    if (gameObject.transform.position.y < m_targetSpawnPos.y - m_roamDistance)
+                    {
+                        gameObject.transform.position = new Vector3(gameObject.transform.position.x, m_targetSpawnPos.y - m_roamDistance, gameObject.transform.position.z);
+                        RandomiseDirection();
+                    }
+                    else if (gameObject.transform.position.y > m_targetSpawnPos.y + m_roamDistance)
+                    {
+                        gameObject.transform.position = new Vector3(gameObject.transform.position.x, m_targetSpawnPos.y + m_roamDistance, gameObject.transform.position.z);
+                        RandomiseDirection();
+                    }
+                }
+                break;
+            case STATE.Dying:
+                {
+                    m_deathTimer -= Time.deltaTime;
+                    if (m_deathTimer <= 0)
+                    {
+                        GameObject.Destroy(gameObject);
+                        return;
+                    }
+                }
+                break;
         }
 
         // Force Z depth
@@ -104,13 +153,17 @@ public class Victim : MonoBehaviour
 
     public void Hit()
     {
-        GameObject.Destroy(gameObject);
+        if (m_state != STATE.Walking)
+            return;
 
-        // TODO: VFX
+        // TODO: Splatter VFX, +1
+        if (m_SFX_splat)
+            m_SFX_splat.PlayRandom();
+        m_state = STATE.Dying;
+        m_deathTimer = 1.0f;
+
         PlayerCursor player = PlayerCursor.GetPlayer(m_playerID);
         if(player)
-        {
             ++player.m_score;
-        }
     }
 }

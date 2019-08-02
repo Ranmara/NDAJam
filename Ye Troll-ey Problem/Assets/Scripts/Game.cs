@@ -170,6 +170,7 @@ public class Game : MonoBehaviour
                     m_endScoresScript = m_playerEndScores.GetComponent<EndScores>();
 
                     m_endScoresScript.DisplayScores();
+
                     m_scoresDisplayed = true;
                 }
 
