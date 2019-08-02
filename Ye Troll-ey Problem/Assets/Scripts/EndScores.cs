@@ -65,10 +65,10 @@ public class EndScores : MonoBehaviour
 
     public void ChangeText()
     {
-        firstText.text = "Player " + scoreArray[0, 0] + " : " + scoreArray[0, 1];
-        secondText.text = "Player " + scoreArray[1, 0] + " : " + scoreArray[1, 1];
-        thirdText.text = "Player " + scoreArray[2, 0] + " : " + scoreArray[2, 1];
-        fourthText.text = "Player " + scoreArray[3, 0] + " : " + scoreArray[3, 1];
+        //firstText.text = "Player " + scoreArray[0, 0] + " : " + scoreArray[0, 1];
+        //secondText.text = "Player " + scoreArray[1, 0] + " : " + scoreArray[1, 1];
+        //thirdText.text = "Player " + scoreArray[2, 0] + " : " + scoreArray[2, 1];
+        //fourthText.text = "Player " + scoreArray[3, 0] + " : " + scoreArray[3, 1];
 
     }
     
