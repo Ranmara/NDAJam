@@ -14,7 +14,7 @@ public class Game : MonoBehaviour
     public SoundVariation m_SFX_playClicked;
     public SoundVariation m_SFX_startGame;
     public SoundVariation m_SFX_endGame;
-    
+
     public enum GAMESTATE
     {
         INIT,
@@ -28,6 +28,7 @@ public class Game : MonoBehaviour
     public GAMESTATE m_gameState = GAMESTATE.FRONTEND;
     public float m_timer = 0;
     public float m_gameTime = 60.0f;
+    public int[] m_scores;
     public GameObject m_frontEnd;
     public GameObject m_hud;
     public float m_spawnVictimTimer;
