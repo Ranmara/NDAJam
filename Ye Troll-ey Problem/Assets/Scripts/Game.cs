@@ -11,6 +11,10 @@ public class Game : MonoBehaviour
     public Vector2 m_gameplayArea = new Vector2(10.0f, 10.0f);
     public Rect m_screenExtents = Rect.zero;
 
+    public SoundVariation m_SFX_playClicked;
+    public SoundVariation m_SFX_startGame;
+    public SoundVariation m_SFX_endGame;
+
     public enum GAMESTATE
     {
         INIT,
