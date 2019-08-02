@@ -464,6 +464,11 @@ MonoBehaviour:
   m_forceSpawnPoint: -1
   m_forcePlayerID: -1
   animator: {fileID: 3316666029008235498}
+  my_animators:
+  - {fileID: 9100000, guid: 29a07864f1eadc74793c7d6ab327ac7d, type: 2}
+  - {fileID: 9100000, guid: 8cc001cc6e6aaab40b4f575a2a183e63, type: 2}
+  - {fileID: 9100000, guid: fdb2f42e742491f488c50f1ab3733fee, type: 2}
+  - {fileID: 9100000, guid: 810fb0ccaf08153428a5886587eed002, type: 2}
 --- !u!114 &2131620787119952363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,7 +539,7 @@ Animator:
   m_GameObject: {fileID: 7652975127936909796}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 810fb0ccaf08153428a5886587eed002, type: 2}
+  m_Controller: {fileID: 9100000, guid: ed172318f2c25c543a5986d37893a8fc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
