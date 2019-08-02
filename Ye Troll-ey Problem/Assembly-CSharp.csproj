@@ -55,6 +55,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\QuitGame.cs" />
      <Compile Include="Assets\Scripts\Cart.cs" />
      <Compile Include="Assets\Scripts\CartAnim.cs" />
      <Compile Include="Assets\Scripts\Direction.cs" />
