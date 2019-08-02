@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_outputDirections: 020000000100000000000000
   m_sprites:
-  - {fileID: 6553038121793887528, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d, type: 3}
+  - {fileID: 3470795507788121348, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d, type: 3}
   - {fileID: -8151371007754649163, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d, type: 3}
   - {fileID: -42874162738999017, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d, type: 3}
   m_SFX_switch: {fileID: 0}

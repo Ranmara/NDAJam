@@ -50,7 +50,7 @@ MonoBehaviour:
   m_sprites:
   - {fileID: -7955399967691644082, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d, type: 3}
   - {fileID: -3792977341413237281, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d, type: 3}
-  - {fileID: -571614040337267669, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d, type: 3}
+  - {fileID: -42874162738999017, guid: 9f3a21dbce4ccaf4598a0ba6f0741c5d, type: 3}
   m_SFX_switch: {fileID: 0}
 --- !u!212 &4214351960175116998
 SpriteRenderer:
