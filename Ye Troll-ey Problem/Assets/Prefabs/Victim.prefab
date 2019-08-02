@@ -134,7 +134,8 @@ MonoBehaviour:
   m_blobShadow: {fileID: 5539734293075164969}
   m_fallSpeed: 10
   m_fallHeight: 20
-  m_roamDistance: 0.7
+  m_roamDistance: 0.6
+  m_SFX_splat: {fileID: 0}
 --- !u!114 &2131620787119952363
 MonoBehaviour:
   m_ObjectHideFlags: 0
