@@ -9843,6 +9843,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_timeText: {fileID: 1754061733}
+  m_gameplayArea: {x: 26, y: 20}
+  m_screenExtents:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
   m_gameState: 0
   m_timer: 0
   m_gameTime: 60

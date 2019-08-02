@@ -77,9 +77,21 @@ public class Victim : MonoBehaviour
                     break;
             }
 
+            // Move
             gameObject.transform.position += directionVector * Time.deltaTime * m_speed;
+
+            // Clamp
+            if (gameObject.transform.position.x < Game.s_instance.m_screenExtents.xMin ||
+                gameObject.transform.position.x > Game.s_instance.m_screenExtents.xMax ||
+                gameObject.transform.position.y < Game.s_instance.m_screenExtents.yMin ||
+                gameObject.transform.position.y > Game.s_instance.m_screenExtents.yMax)
+            {
+                GameObject.Destroy(gameObject);
+                return;
+            }
         }
 
+        // Force Z depth
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -1.0f);
     }
 
