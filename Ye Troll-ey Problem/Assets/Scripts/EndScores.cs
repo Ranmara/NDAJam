@@ -5,12 +5,7 @@ using UnityEngine.UI;
 
 public class EndScores : MonoBehaviour
 {
-
-    public PlayerCursor player1CursorScript;
-    public PlayerCursor player2CursorScript;
-    public PlayerCursor player3CursorScript;
-    public PlayerCursor player4CursorScript;
-
+    [SerializeField]
     public int[ , ] scoreArray;
 
     public Text firstText;
@@ -18,20 +13,20 @@ public class EndScores : MonoBehaviour
     public Text thirdText;
     public Text fourthText;
     
-    public void DisplayScores()
+    public void DisplayScores(int[] passedScores)
     {
         // [x,0] - player Id, [x,1] - their score
-        scoreArray[0, 0] = player1CursorScript.m_playerID;
-        scoreArray[0, 1] = player1CursorScript.m_score;
+        scoreArray[0, 0] = 1;
+        scoreArray[0, 1] = passedScores[0];
 
-        scoreArray[1, 0] = player2CursorScript.m_playerID;
-        scoreArray[1, 1] = player2CursorScript.m_score;
+        scoreArray[1, 0] = 2;
+        scoreArray[1, 1] = passedScores[1];
 
-        scoreArray[2, 0] = player3CursorScript.m_playerID;
-        scoreArray[2, 1] = player3CursorScript.m_score;
+        scoreArray[2, 0] = 3;
+        scoreArray[2, 1] = passedScores[2];
 
-        scoreArray[3, 0] = player4CursorScript.m_playerID;
-        scoreArray[3, 1] = player4CursorScript.m_score;
+        scoreArray[3, 0] = 4;
+        scoreArray[3, 1] = passedScores[3];
 
         ArrangeScores();
         ChangeText();
