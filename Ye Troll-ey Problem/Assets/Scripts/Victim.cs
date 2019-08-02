@@ -23,6 +23,8 @@ public class Victim : MonoBehaviour
     public float m_roamDistance = 0.6f;
     public SoundVariation m_SFX_splat;
     public SoundVariation m_SFX_scream;
+    public int m_forceSpawnPoint = -1;
+    public int m_forcePlayerID = -1;
 
     Direction m_directionComponent;
     int m_playerID;
@@ -42,12 +44,16 @@ public class Victim : MonoBehaviour
 
         m_directionComponent = gameObject.GetComponent<Direction>();
         RandomiseDirection();
-        m_playerID = Random.Range((int)0, (int)4);
+        m_playerID = m_forcePlayerID;
+        if (m_playerID == -1)
+            m_playerID = Random.Range((int)0, (int)4);
 
         // Spawn at random junction
         if (Spawnpoint.s_spawnpoints != null && Spawnpoint.s_spawnpoints.Count > 0)
         {
-            int rand = Random.Range((int)0, (int)Spawnpoint.s_spawnpoints.Count);
+            int rand = m_forceSpawnPoint;
+            if (rand == -1)
+                rand = Random.Range((int)0, (int)Spawnpoint.s_spawnpoints.Count);
             m_targetSpawnPos = Spawnpoint.s_spawnpoints[rand].gameObject.transform.position;
             m_targetSpawnPos.x -= m_roamDistance / 2;
             m_targetSpawnPos.y -= m_roamDistance / 2;

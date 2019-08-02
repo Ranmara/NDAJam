@@ -21,7 +21,6 @@ public class Game : MonoBehaviour
         FRONTEND,
         GAMEINTRO,
         PLAYING,
-        GAMEEND,
         ENDSCORES,
     }
 
@@ -38,9 +37,9 @@ public class Game : MonoBehaviour
     public GameObject m_playerEndScores;
     public EndScores m_endScoresScript;
     public bool m_scoresDisplayed;
+    int m_clustersSpawned = 0;
 
     float m_gameIntroTimer;
-    float m_gameEndTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -70,19 +69,21 @@ public class Game : MonoBehaviour
                 break;
 
             case GAMESTATE.PLAYING:
+                m_clustersSpawned = 0;
                 m_timer = m_gameTime;
                 if (m_SFX_startGame)
                     m_SFX_startGame.PlayRandom();
                 break;
 
-            case GAMESTATE.GAMEEND:
-                m_gameEndTimer = 5.0f;
+            case GAMESTATE.ENDSCORES:
                 if (m_SFX_endGame)
                     m_SFX_endGame.PlayRandom();
-                break;
-
-            case GAMESTATE.ENDSCORES:
                 m_scoresDisplayed = false;
+                if (Victim.s_victims != null)
+                {
+                    for (int i = 0; i < Victim.s_victims.Count; ++i)
+                        GameObject.Destroy(Victim.s_victims[i].gameObject);
+                }
                 break;
         }
 
@@ -135,33 +136,38 @@ public class Game : MonoBehaviour
                     m_spawnVictimTimer -= Time.deltaTime;
                     if(m_spawnVictimTimer <= 0 )
                     {
-                        if(Victim.s_victims == null || Victim.s_victims.Count < m_maxVictims)
+                        if (Victim.s_victims == null || Victim.s_victims.Count < m_maxVictims)
                             Instantiate(m_victimPrefab, Vector3.zero, Quaternion.identity, this.transform);
                         m_spawnVictimTimer = 0.5f;
                     }
 
-                    m_timer -= Time.deltaTime;
-                    if (m_timer <= 0)
-                        SetState(GAMESTATE.GAMEEND);
-                }
-                break;
-
-            case GAMESTATE.GAMEEND:
-                {
-                    m_gameEndTimer -= Time.deltaTime;
-                    if (m_gameEndTimer <= 0)
+                    if(m_clustersSpawned == 0 && m_timer < m_gameTime - 15.0f ||
+                        m_clustersSpawned == 1 && m_timer < m_gameTime - 30.0f ||
+                        m_clustersSpawned == 2 && m_timer < m_gameTime - 45.0f)
                     {
-                        if (Victim.s_victims != null)
+                        for (int p = 0; p < 4; ++p)
                         {
-                            for (int i = 0; i < Victim.s_victims.Count; ++i)
+                            int spawnPoint = Random.Range((int)0, (int)Spawnpoint.s_spawnpoints.Count);
+                            for (int i = 0; i < 3 + m_clustersSpawned; ++i)
                             {
-                                GameObject.Destroy(Victim.s_victims[i].gameObject);
+                                if (Victim.s_victims == null || Victim.s_victims.Count < m_maxVictims)
+                                {
+                                    GameObject newGO = Instantiate(m_victimPrefab, Vector3.zero, Quaternion.identity, this.transform);
+                                    Victim victim = newGO.GetComponent<Victim>();
+                                    if (victim)
+                                    {
+                                        victim.m_forcePlayerID = p;
+                                        victim.m_forceSpawnPoint = spawnPoint;
+                                    }
+                                }
                             }
                         }
-
-                        SetState(GAMESTATE.ENDSCORES);
+                        ++m_clustersSpawned;
                     }
 
+                    m_timer -= Time.deltaTime;
+                    if (m_timer <= 0)
+                        SetState(GAMESTATE.ENDSCORES);
                 }
                 break;
 
