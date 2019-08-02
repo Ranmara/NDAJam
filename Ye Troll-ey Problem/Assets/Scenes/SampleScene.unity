@@ -10188,6 +10188,7 @@ MonoBehaviour:
   m_SFX_playClicked: {fileID: 359874810}
   m_SFX_startGame: {fileID: 218422126}
   m_SFX_endGame: {fileID: 1391661156}
+  m_scores: 00000000000000000000000000000000
   m_gameState: 0
   m_timer: 0
   m_gameTime: 60
@@ -10572,7 +10573,7 @@ PrefabInstance:
     - target: {fileID: 7018202772616855475, guid: 5bd9e7d749f235c4d858ee7b58caecec,
         type: 3}
       propertyPath: m_playerID
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7018202772616855475, guid: 5bd9e7d749f235c4d858ee7b58caecec,
         type: 3}
@@ -10663,7 +10664,7 @@ PrefabInstance:
     - target: {fileID: 7018202772616855475, guid: 5bd9e7d749f235c4d858ee7b58caecec,
         type: 3}
       propertyPath: m_playerID
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7018202772616855475, guid: 5bd9e7d749f235c4d858ee7b58caecec,
         type: 3}

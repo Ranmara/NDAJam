@@ -20,7 +20,7 @@ public class Victim : MonoBehaviour
     public GameObject m_blobShadow;
     public float m_fallSpeed = 1.0f;
     public float m_fallHeight = 20.0f;
-    public float m_roamDistance = 0.7f;
+    public float m_roamDistance = 0.6f;
     public SoundVariation m_SFX_splat;
 
     Direction m_directionComponent;
@@ -39,7 +39,7 @@ public class Victim : MonoBehaviour
 
         m_directionComponent = gameObject.GetComponent<Direction>();
         RandomiseDirection();
-        m_playerID = Random.Range((int)1, (int)4);
+        m_playerID = Random.Range((int)0, (int)4);
 
         // Spawn at random junction
         if (Junction.s_junctions != null && Junction.s_junctions.Count > 0)
