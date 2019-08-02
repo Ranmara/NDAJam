@@ -251,9 +251,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dca6ea9a0b1613f43b29870c1b753289, type: 3}
   - {fileID: 8300000, guid: c3ac06254080fee44b246f9179355e5f, type: 3}
   - {fileID: 8300000, guid: dfb89f31ca1fee942b5c358a74a78b2a, type: 3}
-  m_pitchMin: 1
-  m_pitchMax: 1
-  m_volumeMin: 1
+  m_pitchMin: 0.8
+  m_pitchMax: 1.2
+  m_volumeMin: 0.8
   m_volumeMax: 1
 --- !u!82 &6050859346894184883
 AudioSource:
@@ -264,7 +264,8 @@ AudioSource:
   m_GameObject: {fileID: 6186934918214091234}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2144578724960415359, guid: dced1661efa9b354d8244f9741dff626,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 1e046c566dde58a4685de87ffe5be97c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -460,6 +461,8 @@ MonoBehaviour:
   m_roamDistance: 0.6
   m_SFX_splat: {fileID: 6837900411195757470}
   m_SFX_scream: {fileID: 5605882845215139851}
+  m_forceSpawnPoint: -1
+  m_forcePlayerID: -1
   animator: {fileID: 3316666029008235498}
 --- !u!114 &2131620787119952363
 MonoBehaviour:
