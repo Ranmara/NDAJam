@@ -44,6 +44,7 @@ public class PlayerCursor : MonoBehaviour
         if (Game.s_instance.m_gameState != Game.GAMESTATE.PLAYING)
             return;
 
+        // Move
         switch (m_playerID)
         {
             case 0:
@@ -72,6 +73,18 @@ public class PlayerCursor : MonoBehaviour
                 break;
         }
 
+        // Clamp
+        if (gameObject.transform.position.x < Game.s_instance.m_screenExtents.xMin)
+            gameObject.transform.position = new Vector3(Game.s_instance.m_screenExtents.xMin, gameObject.transform.position.y, gameObject.transform.position.z);
+        else if (gameObject.transform.position.x > Game.s_instance.m_screenExtents.xMax)
+            gameObject.transform.position = new Vector3(Game.s_instance.m_screenExtents.xMax, gameObject.transform.position.y, gameObject.transform.position.z);
+
+        if (gameObject.transform.position.y < Game.s_instance.m_screenExtents.yMin)
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, Game.s_instance.m_screenExtents.yMin, gameObject.transform.position.z);
+        else if (gameObject.transform.position.y > Game.s_instance.m_screenExtents.yMax)
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, Game.s_instance.m_screenExtents.yMax, gameObject.transform.position.z);
+
+        // Force Z depth
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -2.0f);
         m_scoreText.text = m_score.ToString();
     }

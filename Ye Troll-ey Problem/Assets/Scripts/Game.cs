@@ -8,6 +8,8 @@ public class Game : MonoBehaviour
 
     public UnityEngine.UI.Text m_timeText;
 
+    public Vector2 m_gameplayArea = new Vector2(10.0f, 10.0f);
+    public Rect m_screenExtents = Rect.zero;
 
     public enum GAMESTATE
     {
@@ -33,6 +35,7 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_screenExtents = new Rect(-m_gameplayArea.x / 2, -m_gameplayArea.y / 2, m_gameplayArea.x, m_gameplayArea.y);
         s_instance = this;
         m_timer = m_gameTime;
 
