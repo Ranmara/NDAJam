@@ -44,7 +44,7 @@ public class Cart : MonoBehaviour
         // Move
         gameObject.transform.position += directionVector * Time.deltaTime * m_speed;
 
-        if(m_lastCollidedJunction)
+        if (m_lastCollidedJunction)
         {
             bool turn = false;
             switch (m_directionComponent.m_direction)
@@ -62,7 +62,7 @@ public class Cart : MonoBehaviour
                         turn = true;
                     break;
                 case Direction.DIRECTION_ENUM.WEST:
-                    if (gameObject.transform.position.x <= m_lastCollidedJunction.gameObject.transform.position.y)
+                    if (gameObject.transform.position.x <= m_lastCollidedJunction.gameObject.transform.position.x)
                         turn = true;
                     break;
             }
@@ -70,8 +70,8 @@ public class Cart : MonoBehaviour
             {
                 gameObject.transform.position = m_lastCollidedJunction.gameObject.transform.position;
                 m_directionComponent.m_direction = m_lastCollidedJunction.GetCurrentOutputDirection();
+                m_lastCollidedJunction = null;
             }
-            m_lastCollidedJunction = null;
         }
 
         // Clamp
@@ -94,7 +94,11 @@ public class Cart : MonoBehaviour
         {
             Junction junction = collision.gameObject.GetComponent<Junction>();
             if (junction)
+            {
                 m_lastCollidedJunction = junction;
+                //gameObject.transform.position = junction.gameObject.transform.position;
+                //m_directionComponent.m_direction = junction.GetCurrentOutputDirection();
+            }
 
             Victim victim = collision.gameObject.GetComponent<Victim>();
             if (victim)
