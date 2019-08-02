@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 6546133950421957627}
   - component: {fileID: 4716329179720640406}
   - component: {fileID: 2131620787119952363}
+  - component: {fileID: 3196143725508754741}
+  - component: {fileID: 1797673359588981741}
   m_Layer: 0
   m_Name: Victim
   m_TagString: Untagged
@@ -131,6 +133,8 @@ MonoBehaviour:
   m_maxTimeBetweenDirectionChange: 1.5
   m_blobShadow: {fileID: 5539734293075164969}
   m_fallSpeed: 10
+  m_fallHeight: 20
+  m_roamDistance: 0.7
 --- !u!114 &2131620787119952363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +148,53 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_direction: 1
+--- !u!61 &3196143725508754741
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652975127936909796}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!50 &1797673359588981741
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7652975127936909796}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8271209456881780413
 GameObject:
   m_ObjectHideFlags: 0
