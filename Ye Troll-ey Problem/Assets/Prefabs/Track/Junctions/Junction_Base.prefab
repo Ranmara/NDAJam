@@ -297,9 +297,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3fab0459cb914244899ce88ac396cfa9, type: 3}
   - {fileID: 8300000, guid: 598a10922807fde4281dcb01a098b0bf, type: 3}
   - {fileID: 8300000, guid: 227415d1e9b88b449a0caf3485a19128, type: 3}
-  m_pitchMin: 1
-  m_pitchMax: 1
-  m_volumeMin: 1
+  m_pitchMin: 0.95
+  m_pitchMax: 1.12
+  m_volumeMin: 0.85
   m_volumeMax: 1
 --- !u!82 &6224657326075980938
 AudioSource:
