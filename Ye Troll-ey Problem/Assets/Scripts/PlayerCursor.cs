@@ -41,6 +41,10 @@ public class PlayerCursor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Game.s_instance.m_gameState == Game.GAMESTATE.FRONTEND ||
+            Game.s_instance.m_gameState == Game.GAMESTATE.GAMEINTRO)
+            m_score = 0;
+
         Game.s_instance.m_scores[m_playerID] = m_score;
 
         if (Game.s_instance.m_gameState != Game.GAMESTATE.PLAYING)
