@@ -2085,6 +2085,49 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 3c39ac826005ecd418f52793c595b62f,
         type: 3}
+    - target: {fileID: 3586575950426365401, guid: 365d235aa41a18142bb249fa510c4dcf,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586575950426365401, guid: 365d235aa41a18142bb249fa510c4dcf,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586575950426365401, guid: 365d235aa41a18142bb249fa510c4dcf,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586575950426365414, guid: 365d235aa41a18142bb249fa510c4dcf,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 60d4eb0e079dc52429879f8578ac0890,
+        type: 3}
+    - target: {fileID: 3586575950426365414, guid: 365d235aa41a18142bb249fa510c4dcf,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.3490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586575950426365414, guid: 365d235aa41a18142bb249fa510c4dcf,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.2699788
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586575950426365414, guid: 365d235aa41a18142bb249fa510c4dcf,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.16629584
+      objectReference: {fileID: 0}
+    - target: {fileID: 318388340, guid: 365d235aa41a18142bb249fa510c4dcf, type: 3}
+      propertyPath: m_Text
+      value: 'Press any button to switch the intersections.
+
+
+        Guide your minecart to hit trolls wearing your colour!'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 365d235aa41a18142bb249fa510c4dcf, type: 3}
 --- !u!1 &1054746072

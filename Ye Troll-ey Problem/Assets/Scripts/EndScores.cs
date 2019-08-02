@@ -15,6 +15,9 @@ public class EndScores : MonoBehaviour
     
     public void DisplayScores(int[] passedScores)
     {
+        if (scoreArray == null)
+            scoreArray = new int[4, 4];
+
         // [x,0] - player Id, [x,1] - their score
         scoreArray[0, 0] = 1;
         scoreArray[0, 1] = passedScores[0];
