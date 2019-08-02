@@ -39,36 +39,36 @@ public class EndScores : MonoBehaviour
 
     public void ArrangeScores()
     {
-        int temp_var = 0;
+        //int temp_var = 0;
 
-        for (int i = 0; i < (scoreArray.Length - 1) ; i++)
-        {
-            for (int j = 0; j < scoreArray.Length; j++)
-            {
-                if (scoreArray[i,1] < scoreArray[j,1])
-                {
-                    temp_var = scoreArray[i, 0];
-                    scoreArray[i, 0] = scoreArray[j, 0];
-                    scoreArray[j, 0] = temp_var;
+        //for (int i = 0; i < (scoreArray.Length - 1) ; i++)
+        //{
+        //    for (int j = 0; j < scoreArray.Length; j++)
+        //    {
+        //        if (scoreArray[i,1] < scoreArray[j,1])
+        //        {
+        //            temp_var = scoreArray[i, 0];
+        //            scoreArray[i, 0] = scoreArray[j, 0];
+        //            scoreArray[j, 0] = temp_var;
 
-                    temp_var = scoreArray[i, 1];
-                    scoreArray[i, 1] = scoreArray[j, 1];
-                    scoreArray[j, 1] = temp_var;
+        //            temp_var = scoreArray[i, 1];
+        //            scoreArray[i, 1] = scoreArray[j, 1];
+        //            scoreArray[j, 1] = temp_var;
 
-                }
-            }
+        //        }
+        //    }
 
-        }
+        //}
 
     }
 
 
     public void ChangeText()
     {
-        firstText.text = "Player " + scoreArray[0, 0] + " : " + scoreArray[0, 1];
-        secondText.text = "Player " + scoreArray[1, 0] + " : " + scoreArray[1, 1];
-        thirdText.text = "Player " + scoreArray[2, 0] + " : " + scoreArray[2, 1];
-        fourthText.text = "Player " + scoreArray[3, 0] + " : " + scoreArray[3, 1];
+        //firstText.text = "Player " + scoreArray[0, 0] + " : " + scoreArray[0, 1];
+        //secondText.text = "Player " + scoreArray[1, 0] + " : " + scoreArray[1, 1];
+        //thirdText.text = "Player " + scoreArray[2, 0] + " : " + scoreArray[2, 1];
+        //fourthText.text = "Player " + scoreArray[3, 0] + " : " + scoreArray[3, 1];
 
     }
     

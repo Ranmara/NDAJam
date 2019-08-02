@@ -45,10 +45,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clipArray:
-  - {fileID: 8300000, guid: 7ac41040a99eea4478f8201e9556616a, type: 3}
-  m_pitchMin: 1
-  m_pitchMax: 1
-  m_volumeMin: 1
+  - {fileID: 8300000, guid: 547cd3755250b604f8480a6624c61659, type: 3}
+  - {fileID: 8300000, guid: 76486c007afda9548a3a192131e2889b, type: 3}
+  - {fileID: 8300000, guid: 3446ec9f45a86bf49883b1e36fb16de4, type: 3}
+  - {fileID: 8300000, guid: 76978289f57b2694f806bbffb129ff74, type: 3}
+  - {fileID: 8300000, guid: 18dee5269bc6dcd4daea5175055a5e74, type: 3}
+  - {fileID: 8300000, guid: a891e1a893e5b6b4f8da217c8b01897c, type: 3}
+  - {fileID: 8300000, guid: e828aba8a6a5afd45bde2ca33825d2e8, type: 3}
+  - {fileID: 8300000, guid: 711b1c309eb009e418b173f332d8c928, type: 3}
+  - {fileID: 8300000, guid: 16e24d84ee958ad4c8a22ce3a2934e84, type: 3}
+  - {fileID: 8300000, guid: 6a513c1ca2b9e8c4e9687e43ce01f492, type: 3}
+  - {fileID: 8300000, guid: 71abc64d790e42b4bb841015892d622d, type: 3}
+  - {fileID: 8300000, guid: 4a86298e21922844481c4140756220c1, type: 3}
+  - {fileID: 8300000, guid: f5460bcd0db25a247ae836aeec895586, type: 3}
+  - {fileID: 8300000, guid: a8e500810c63a7e42980f66758cc837e, type: 3}
+  - {fileID: 8300000, guid: 50e4bedcacedf174d88df959bbf2ba71, type: 3}
+  - {fileID: 8300000, guid: cc3f7b56c688e174492885c5b9d7e9e2, type: 3}
+  - {fileID: 8300000, guid: a46c73338ce163b489b063e7ba96d75f, type: 3}
+  - {fileID: 8300000, guid: 5782808f3668dff4db4a26e2b1cc803e, type: 3}
+  - {fileID: 8300000, guid: 8bd5cba2709b4414fba78684377940d2, type: 3}
+  - {fileID: 8300000, guid: a8b995a24046b8a418d7d9a24049a9d0, type: 3}
+  - {fileID: 8300000, guid: e06645ede91342f4496bc7efdbb436aa, type: 3}
+  - {fileID: 8300000, guid: 253a5ef5bf4feb4479ebfeea6def39b5, type: 3}
+  - {fileID: 8300000, guid: 8ba325ecd34ad2a4397002da9e5b70e5, type: 3}
+  - {fileID: 8300000, guid: 712c3f0cafe397f458ce67d41fd8dbe4, type: 3}
+  m_pitchMin: 0.8
+  m_pitchMax: 1.1
+  m_volumeMin: 0.5
   m_volumeMax: 1
 --- !u!82 &2337462061044148249
 AudioSource:
@@ -59,7 +82,8 @@ AudioSource:
   m_GameObject: {fileID: 1672338599751206957}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4299280762813135141, guid: dced1661efa9b354d8244f9741dff626,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 1e046c566dde58a4685de87ffe5be97c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -227,9 +251,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dca6ea9a0b1613f43b29870c1b753289, type: 3}
   - {fileID: 8300000, guid: c3ac06254080fee44b246f9179355e5f, type: 3}
   - {fileID: 8300000, guid: dfb89f31ca1fee942b5c358a74a78b2a, type: 3}
-  m_pitchMin: 1
-  m_pitchMax: 1
-  m_volumeMin: 1
+  m_pitchMin: 0.8
+  m_pitchMax: 1.2
+  m_volumeMin: 0.8
   m_volumeMax: 1
 --- !u!82 &6050859346894184883
 AudioSource:
@@ -240,7 +264,8 @@ AudioSource:
   m_GameObject: {fileID: 6186934918214091234}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -2144578724960415359, guid: dced1661efa9b354d8244f9741dff626,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 1e046c566dde58a4685de87ffe5be97c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -436,6 +461,8 @@ MonoBehaviour:
   m_roamDistance: 0.6
   m_SFX_splat: {fileID: 6837900411195757470}
   m_SFX_scream: {fileID: 5605882845215139851}
+  m_forceSpawnPoint: -1
+  m_forcePlayerID: -1
   animator: {fileID: 3316666029008235498}
 --- !u!114 &2131620787119952363
 MonoBehaviour:
@@ -507,7 +534,7 @@ Animator:
   m_GameObject: {fileID: 7652975127936909796}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 29a07864f1eadc74793c7d6ab327ac7d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 810fb0ccaf08153428a5886587eed002, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
