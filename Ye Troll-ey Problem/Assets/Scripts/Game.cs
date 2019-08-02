@@ -59,14 +59,20 @@ public class Game : MonoBehaviour
 
             case GAMESTATE.GAMEINTRO:
                 m_gameIntroTimer = 1.5f;
+                if (m_SFX_playClicked)
+                    m_SFX_playClicked.PlayRandom();
                 break;
 
             case GAMESTATE.PLAYING:
                 m_timer = m_gameTime;
+                if (m_SFX_startGame)
+                    m_SFX_startGame.PlayRandom();
                 break;
 
             case GAMESTATE.GAMEEND:
                 m_gameEndTimer = 5.0f;
+                if (m_SFX_endGame)
+                    m_SFX_endGame.PlayRandom();
                 break;
         }
 
