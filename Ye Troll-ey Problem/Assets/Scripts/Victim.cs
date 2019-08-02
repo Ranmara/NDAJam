@@ -22,6 +22,7 @@ public class Victim : MonoBehaviour
     public float m_fallHeight = 20.0f;
     public float m_roamDistance = 0.6f;
     public SoundVariation m_SFX_splat;
+    public SoundVariation m_SFX_scream;
 
     Direction m_directionComponent;
     int m_playerID;
@@ -42,10 +43,10 @@ public class Victim : MonoBehaviour
         m_playerID = Random.Range((int)0, (int)4);
 
         // Spawn at random junction
-        if (Junction.s_junctions != null && Junction.s_junctions.Count > 0)
+        if (Spawnpoint.s_spawnpoints != null && Spawnpoint.s_spawnpoints.Count > 0)
         {
-            int rand = Random.Range((int)0, (int)Junction.s_junctions.Count);
-            m_targetSpawnPos = Junction.s_junctions[rand].gameObject.transform.position;
+            int rand = Random.Range((int)0, (int)Spawnpoint.s_spawnpoints.Count);
+            m_targetSpawnPos = Spawnpoint.s_spawnpoints[rand].gameObject.transform.position;
             m_targetSpawnPos.x -= m_roamDistance / 2;
             m_targetSpawnPos.y -= m_roamDistance / 2;
             m_targetSpawnPos.x += Random.Range(0, m_roamDistance);
@@ -159,6 +160,11 @@ public class Victim : MonoBehaviour
         // TODO: Splatter VFX, +1
         if (m_SFX_splat)
             m_SFX_splat.PlayRandom();
+        if(m_SFX_scream)
+        {
+            if(Random.Range((int)1, (int)5) == 1)
+                m_SFX_scream.PlayRandom();
+        }
         m_state = STATE.Dying;
         m_deathTimer = 1.0f;
 
