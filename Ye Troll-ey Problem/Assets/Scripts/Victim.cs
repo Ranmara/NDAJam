@@ -33,6 +33,8 @@ public class Victim : MonoBehaviour
     Vector3 m_targetSpawnPos;
 
     public Animator animator;
+    public Animator[] my_animators;
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,6 +49,8 @@ public class Victim : MonoBehaviour
         m_playerID = m_forcePlayerID;
         if (m_playerID == -1)
             m_playerID = Random.Range((int)0, (int)4);
+
+        ChangeColour(m_playerID);
 
         // Spawn at random junction
         if (Spawnpoint.s_spawnpoints != null && Spawnpoint.s_spawnpoints.Count > 0)
@@ -189,5 +193,10 @@ public class Victim : MonoBehaviour
         PlayerCursor player = PlayerCursor.GetPlayer(m_playerID);
         if(player)
             ++player.m_score;
+    }
+
+    void ChangeColour(int player_id)
+    {
+        animator.SetInteger("TrollId", player_id);
     }
 }
