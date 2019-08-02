@@ -30,6 +30,8 @@ public class Victim : MonoBehaviour
     STATE m_state = STATE.Spawning;
     Vector3 m_targetSpawnPos;
 
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,6 +80,7 @@ public class Victim : MonoBehaviour
                     m_state = STATE.Walking;
                 }
                 m_blobShadow.transform.position = m_targetSpawnPos;
+                animator.SetInteger("TrollState", 0);
                 break;
             case STATE.Walking:
                 {
@@ -127,8 +130,11 @@ public class Victim : MonoBehaviour
                         gameObject.transform.position = new Vector3(gameObject.transform.position.x, m_targetSpawnPos.y + m_roamDistance, gameObject.transform.position.z);
                         RandomiseDirection();
                     }
+
+                    animator.SetInteger("TrollState", 1);
                 }
                 break;
+
             case STATE.Dying:
                 {
                     m_deathTimer -= Time.deltaTime;
@@ -137,6 +143,8 @@ public class Victim : MonoBehaviour
                         GameObject.Destroy(gameObject);
                         return;
                     }
+
+                    animator.SetInteger("TrollState", 2);
                 }
                 break;
         }
